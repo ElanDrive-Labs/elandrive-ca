@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.card { padding: 2rem; cursor: default; }
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 8px var(--cyan));
+  display: block;
+}
+
+.title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--lime); margin-bottom: .75rem;
+}
+
+.desc {
+  font-size: .9rem;
+  line-height: 1.8;
+  color: rgba(232,244,240,0.6);
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .6rem; letter-spacing: 2px;
+  color: var(--cyan);
+  border: 1px solid rgba(63,255,210,0.3);
+  padding: 3px 10px;
+}
+
+.cta {
+  margin-top: 4rem;
+  text-align: center;
+}
+.cta p {
+  color: rgba(232,244,240,0.5);
+  margin-bottom: 1.5rem;
+  font-size: .95rem;
+}

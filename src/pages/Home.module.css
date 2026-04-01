@@ -1,0 +1,124 @@
+.hero {
+  min-height: 100vh;
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.glow {
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(63,255,210,0.07) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* corners */
+.corner {
+  position: absolute;
+  width: 40px; height: 40px;
+}
+.tl { top: 90px; left: 5vw; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.tr { top: 90px; right: 5vw; border-top: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+.bl { bottom: 3vh; left: 5vw; border-bottom: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.br { bottom: 3vh; right: 5vw; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+
+.logoWrap {
+  position: relative;
+  margin-bottom: 2.5rem;
+  animation: floatY 5s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+.logo {
+  width: 180px;
+  filter: drop-shadow(0 0 24px rgba(63,255,210,0.55));
+}
+
+.scanLine {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  animation: scan 3s linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}
+
+.title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--lime);
+  text-shadow: 0 0 40px rgba(200,255,140,0.25);
+  line-height: 1;
+}
+
+.sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(.75rem, 2vw, 1rem);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: .75rem 0 2rem;
+}
+
+.desc {
+  max-width: 560px;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(232,244,240,0.6);
+  margin-bottom: 2.5rem;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.statsRow {
+  position: absolute;
+  bottom: 4vh; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 4rem;
+}
+
+.stat { text-align: center; }
+
+.statNum {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--cyan);
+}
+
+.statLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .6rem; letter-spacing: 2px;
+  color: var(--muted); text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .statsRow { gap: 2rem; bottom: 2vh; }
+  .title { letter-spacing: 4px; }
+}
