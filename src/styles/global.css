@@ -1,0 +1,151 @@
+/* ── RESET & TOKENS ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:       #070e1a;
+  --bg2:      #0b1525;
+  --cyan:     #3fffd2;
+  --cyan-dim: #1fa890;
+  --lime:     #c8ff8c;
+  --lime-dim: #8ab55e;
+  --white:    #e8f4f0;
+  --muted:    #4a6a7a;
+  --border:   rgba(63,255,210,0.15);
+  --glow:     0 0 20px rgba(63,255,210,0.3);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid background */
+.grid-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(63,255,210,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63,255,210,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+main { position: relative; z-index: 1; }
+
+/* ── SHARED PAGE LAYOUT ── */
+.page-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 5vw 6rem;
+}
+
+/* ── PAGE HEADER ── */
+.page-header { margin-bottom: 3.5rem; }
+
+.page-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: 4px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.page-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--lime);
+  line-height: 1.1;
+}
+
+.title-line {
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+  margin-top: 1rem;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--cyan);
+  border: none;
+  padding: 14px 36px;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  cursor: pointer;
+  transition: background .25s, transform .2s;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-primary:hover { background: var(--lime); transform: translateY(-2px); }
+
+.btn-outline {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: .9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: transparent;
+  border: 1px solid var(--cyan);
+  padding: 13px 36px;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  cursor: pointer;
+  transition: background .25s, color .25s, transform .2s;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-outline:hover { background: rgba(63,255,210,0.1); transform: translateY(-2px); }
+
+/* ── ENTRANCE ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp .55s ease both;
+}
+.fade-up-1 { animation-delay: .1s; }
+.fade-up-2 { animation-delay: .2s; }
+.fade-up-3 { animation-delay: .3s; }
+.fade-up-4 { animation-delay: .4s; }
+
+/* ── CARD BASE ── */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, transform .3s;
+}
+.card:hover { border-color: var(--cyan); transform: translateY(-5px); }
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.card:hover::before { opacity: 1; }

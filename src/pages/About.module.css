@@ -1,0 +1,106 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.body {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: rgba(232,244,240,0.7);
+  margin-bottom: 1.5rem;
+}
+.body strong { color: var(--cyan); font-weight: 600; }
+
+.values {
+  list-style: none;
+  display: flex; flex-direction: column; gap: .75rem;
+  margin-top: .75rem;
+}
+.values li {
+  display: flex; align-items: center; gap: .75rem;
+  font-size: .9rem;
+  color: rgba(232,244,240,0.7);
+}
+.values li::before {
+  content: '▸';
+  color: var(--cyan); font-size: .8rem; flex-shrink: 0;
+}
+
+.visual { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.pyramidCard { padding: 2rem; text-align: center; }
+.pyramidCard::before { opacity: 1; }
+
+.pyramidLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .6rem; letter-spacing: 3px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.statsCard { padding: 1.5rem; }
+.statsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .5rem; }
+.statItem { text-align: center; }
+.statNum {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--cyan);
+}
+.statLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .6rem; letter-spacing: 2px;
+  color: var(--muted); text-transform: uppercase;
+}
+
+/* Team */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.teamCard { padding: 1.5rem; cursor: default; }
+.teamCard::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--lime));
+  opacity: 0; transition: opacity .3s;
+}
+.teamCard:hover::after { opacity: 1; }
+
+.avatar {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--cyan-dim), var(--lime-dim));
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--bg);
+  margin-bottom: 1rem;
+}
+
+.memberName {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700; font-size: .95rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--lime); margin-bottom: .25rem;
+}
+
+.memberRole {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .62rem; letter-spacing: 2px;
+  color: var(--cyan); text-transform: uppercase;
+}
+
+.teamNote {
+  font-size: .78rem; color: var(--muted);
+  font-style: italic; margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+}
