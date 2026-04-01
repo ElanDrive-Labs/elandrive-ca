@@ -6,5 +6,5 @@ import react from '@vitejs/plugin-react'
 // If using a custom domain (elandrive.ca) or username.github.io repo → base: '/'
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/elandrive-ca/',
 })
