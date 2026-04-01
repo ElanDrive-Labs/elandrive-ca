@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import styles from './Navbar.module.css'
+import logo from '/logo2.png'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -18,7 +19,7 @@ export default function Navbar() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <NavLink to="/" className={styles.logo}>
-        <img src="/logo2.png" alt="ElanDrive Labs" />
+        <img src={logo} alt="ElanDrive Labs" />
         <div>
           <span className={styles.logoName}>ElanDrive Labs</span>
           <span className={styles.logoSub}>Intelligence in Motion</span>

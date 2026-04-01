@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
+import logo from '/logo2.png'
 
 const stats = [
   { num: '2025', label: 'Founded' },
@@ -24,7 +25,7 @@ export default function Home() {
       {/* Logo */}
       <div className={`${styles.logoWrap} fade-up`}>
         <div className={styles.scanLine} />
-        <img src="/logo2.png" alt="ElanDrive Labs" className={styles.logo} />
+        <img src={logo} alt="ElanDrive Labs" className={styles.logo} />
       </div>
 
       <h1 className={`${styles.title} fade-up fade-up-1`}>ElanDrive Labs</h1>
